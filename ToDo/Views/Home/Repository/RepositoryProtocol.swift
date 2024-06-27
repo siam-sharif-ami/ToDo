@@ -12,3 +12,4 @@
 //    func fetchFromLocalDatabase() -> [ToDoItem]
 //    func fetchFromDummy() -> [ToDoItem]
 //}
+

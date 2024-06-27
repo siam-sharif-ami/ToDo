@@ -1,7 +1,7 @@
 
 import Foundation
 
-class ToDoItem  {
+class ToDoItem : Identifiable {
     var title: String
     var description: String
     var dueDate: Date

@@ -12,22 +12,20 @@ struct Home: View {
     @State var viewModel = HomeViewModel()
     
     var body: some View {
+        
         NavigationStack{
             
-//            if let items = viewModel.toDoItem {
-//                ScrollView{
-//                    ForEach(items, id: \.self){item in
-//                        List{
-//                            Text("\(item.title)")
-//                            Text("\(item.description)")
-//                            Text("\(item.dueDate)")
-//                            Text("\(item.isCompleted)")
-//                        }
-//                    }
-//                }
-//            }
-            
-            Text("Task List")
+            List{
+                ForEach(viewModel.toDoItem, id: \.id){ item in
+                        NavigationLink(destination: {
+                            DetailView()
+                        }){
+                            HStack{
+                                Text("\(item.title)")
+                            }
+                        }
+                    }
+            }
                 .toolbar{
                     ToolbarItem{
                         Button(action:{ showCreate.toggle()
@@ -38,7 +36,7 @@ struct Home: View {
                 }
                 .sheet(isPresented: $showCreate, content: {
                     NavigationStack{
-                        CreateToDoView(showCreate: $showCreate)
+                        CreateToDoView(showCreate: $showCreate, viewModel: viewModel)
                     }
                     .presentationDetents([.large])
                 })
@@ -48,5 +46,5 @@ struct Home: View {
 }
 
 #Preview {
-    Home()
+    Home(viewModel: HomeViewModel())
 }

@@ -21,6 +21,9 @@
 		7A1ACD0F2C2D59FC004FE3AC /* RepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1ACD0E2C2D59FC004FE3AC /* RepositoryProtocol.swift */; };
 		7A1ACD112C2D5A19004FE3AC /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1ACD102C2D5A19004FE3AC /* HomeViewModel.swift */; };
 		7A1ACD132C2D5C91004FE3AC /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1ACD122C2D5C91004FE3AC /* Home.swift */; };
+		7AD34DAE2C2D8E2A009235C7 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 7AD34DAD2C2D8E2A009235C7 /* Kingfisher */; };
+		7AD34DB02C2D9957009235C7 /* ItemTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD34DAF2C2D9957009235C7 /* ItemTabView.swift */; };
+		7AD34DB22C2DA9BE009235C7 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD34DB12C2DA9BE009235C7 /* DetailView.swift */; };
 		8D09811E711EDF38D5F133D0 /* Pods_ToDo_ToDoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B174C76376C21D94ECEE495F /* Pods_ToDo_ToDoUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +65,8 @@
 		7A1ACD0E2C2D59FC004FE3AC /* RepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryProtocol.swift; sourceTree = "<group>"; };
 		7A1ACD102C2D5A19004FE3AC /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		7A1ACD122C2D5C91004FE3AC /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		7AD34DAF2C2D9957009235C7 /* ItemTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTabView.swift; sourceTree = "<group>"; };
+		7AD34DB12C2DA9BE009235C7 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		8FC56A5A57E6393120F7A8C0 /* Pods-ToDoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToDoTests.release.xcconfig"; path = "Target Support Files/Pods-ToDoTests/Pods-ToDoTests.release.xcconfig"; sourceTree = "<group>"; };
 		9A64FBD8830B71AA2B2E8E52 /* Pods-ToDo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToDo.debug.xcconfig"; path = "Target Support Files/Pods-ToDo/Pods-ToDo.debug.xcconfig"; sourceTree = "<group>"; };
 		A4827840689E6C822BA9688A /* Pods-ToDo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToDo.release.xcconfig"; path = "Target Support Files/Pods-ToDo/Pods-ToDo.release.xcconfig"; sourceTree = "<group>"; };
@@ -73,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7AD34DAE2C2D8E2A009235C7 /* Kingfisher in Frameworks */,
 				33C1FD4D1A194188F0129A7C /* Pods_ToDo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -195,6 +201,7 @@
 			isa = PBXGroup;
 			children = (
 				7A1ACD122C2D5C91004FE3AC /* Home.swift */,
+				7AD34DAF2C2D9957009235C7 /* ItemTabView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -203,6 +210,7 @@
 			isa = PBXGroup;
 			children = (
 				7A1ACD0B2C2D59B5004FE3AC /* CreateToDoView.swift */,
+				7AD34DB12C2DA9BE009235C7 /* DetailView.swift */,
 			);
 			path = SubViews;
 			sourceTree = "<group>";
@@ -255,6 +263,9 @@
 			dependencies = (
 			);
 			name = ToDo;
+			packageProductDependencies = (
+				7AD34DAD2C2D8E2A009235C7 /* Kingfisher */,
+			);
 			productName = ToDo;
 			productReference = 7A1ACCD32C2D58ED004FE3AC /* ToDo.app */;
 			productType = "com.apple.product-type.application";
@@ -329,6 +340,9 @@
 				Base,
 			);
 			mainGroup = 7A1ACCCA2C2D58ED004FE3AC;
+			packageReferences = (
+				7AD34DAC2C2D8D40009235C7 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
 			productRefGroup = 7A1ACCD42C2D58ED004FE3AC /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -441,10 +455,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				7A1ACCD92C2D58ED004FE3AC /* ContentView.swift in Sources */,
+				7AD34DB22C2DA9BE009235C7 /* DetailView.swift in Sources */,
 				7A1ACD112C2D5A19004FE3AC /* HomeViewModel.swift in Sources */,
 				7A1ACD0C2C2D59B5004FE3AC /* CreateToDoView.swift in Sources */,
 				7A1ACCD72C2D58ED004FE3AC /* ToDoApp.swift in Sources */,
 				7A1ACD062C2D595C004FE3AC /* ToDoItem.swift in Sources */,
+				7AD34DB02C2D9957009235C7 /* ItemTabView.swift in Sources */,
 				7A1ACD0F2C2D59FC004FE3AC /* RepositoryProtocol.swift in Sources */,
 				7A1ACD132C2D5C91004FE3AC /* Home.swift in Sources */,
 			);
@@ -778,6 +794,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		7AD34DAC2C2D8D40009235C7 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.12.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		7AD34DAD2C2D8E2A009235C7 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7AD34DAC2C2D8D40009235C7 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 7A1ACCCB2C2D58ED004FE3AC /* Project object */;
 }
