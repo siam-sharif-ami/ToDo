@@ -11,14 +11,15 @@ import Kingfisher
  
 struct CreateToDoView: View {
     
-    @State private var item = ToDoItem()
     @Binding var showCreate: Bool
-    @State var viewModel: HomeViewModel
+    @ObservedObject var viewModel: HomeViewModel
+    @Environment(\.managedObjectContext) var objectContext
     
     var body: some View {
         VStack{
             List{
                 if let image = viewModel.selectedImage {
+                    Text("image set in selectedImage")
                     Image(uiImage: image)
                         .resizable()
                         .scaledToFill()
@@ -35,14 +36,18 @@ struct CreateToDoView: View {
                         Image(systemName: "plus.circle")
                     }
                 }
-                TextField("Title", text: $item.title)
-                TextField("Description", text: $item.description)
-                DatePicker("Choose a date", selection: $item.dueDate)
-                Toggle(isOn: $item.isCompleted){
+                TextField("Title", text: $viewModel.toDoItem.title)
+                TextField("Description", text: $viewModel.toDoItem.itemDescription)
+                DatePicker("Choose a date", selection: $viewModel.toDoItem.dueDate)
+                Toggle(isOn: $viewModel.toDoItem.isCompleted){
                     Text("Done?")
                 }
                 Button(action: {
-                    viewModel.addToTaskList(item: item)
+                    do{
+                        try viewModel.save()
+                    }catch{
+                        print("couldn't save to coreData")
+                    }
                     showCreate.toggle()
                 } ,label: {
                     Text("Create")
@@ -65,5 +70,6 @@ struct CreateToDoView: View {
 }
 
 #Preview {
-    CreateToDoView(showCreate: .constant(false),viewModel: HomeViewModel())
+    CreateToDoView(showCreate: .constant(false),viewModel: .init(provider: .shared))
+        
 }

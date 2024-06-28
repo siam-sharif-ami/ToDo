@@ -8,11 +8,18 @@
 import SwiftUI
 
 struct DetailView: View {
+    
+    let item: ToDoItem
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        
+        Text("\(item.title)")
+        Text("\(item.itemDescription)")
+        Text("\(item.dueDate)")
+        Text("\(item.isCompleted)")
     }
 }
 
-#Preview {
-    DetailView()
-}
+//#Preview {
+//    DetailView(item: )
+//}

@@ -1,25 +1,31 @@
 
 import Foundation
+import CoreData
 
-class ToDoItem : Identifiable {
-    var title: String
-    var description: String
-    var dueDate: Date
-    var image: String?
-    var isCompleted: Bool
+final class ToDoItem : NSManagedObject, Identifiable {
+    @NSManaged var title: String
+    @NSManaged var itemDescription: String
+    @NSManaged var dueDate: Date
+    @NSManaged var image: String?
+    @NSManaged var isCompleted: Bool
     
-    init(title: String = "", description: String = "", dueDate: Date = Date.now, image: String? = nil, isCompleted: Bool = false) {
-        self.title = title
-        self.description = description
-        self.dueDate = dueDate
-        self.image = image
-        self.isCompleted = isCompleted
+    override func awakeFromInsert() {
+        super.awakeFromInsert()
+        
+        setPrimitiveValue(Date.now, forKey: "dueDate")
+        setPrimitiveValue(false, forKey: "isCompleted")
     }
-    
-    static func example() -> [ToDoItem] {
-        [ToDoItem(title: "Go to gym",description: "need to be fit man", dueDate: Date.now, image: "", isCompleted: false),
-         ToDoItem(title: "Go study",description: "need to be wise man", dueDate: Date.now, image: "", isCompleted: true),
-         ToDoItem(title: "Go code",description: "coding is fun", dueDate: Date.now, image: "", isCompleted: true)
-         ]
+}
+
+extension ToDoItem {
+    private static var toDoItemFetchRequest: NSFetchRequest<ToDoItem>{
+        NSFetchRequest(entityName: "ToDoItem")
+    }
+    static func all() -> NSFetchRequest<ToDoItem> {
+        let request: NSFetchRequest<ToDoItem> = toDoItemFetchRequest
+        request.sortDescriptors = [
+            NSSortDescriptor(keyPath: \ToDoItem.dueDate, ascending: true)
+        ]
+        return request
     }
 }

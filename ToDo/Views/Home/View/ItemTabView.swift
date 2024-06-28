@@ -28,7 +28,7 @@ struct ItemTabView: View {
             
             VStack{
                 Text("\(item.title)")
-                Text("\(item.description)")
+                Text("\(item.itemDescription)")
                 Text("\(formattedCurrentDate(date: item.dueDate))")
             }
         
