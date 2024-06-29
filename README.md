@@ -1,10 +1,10 @@
-**Dependencies that need to be installed: **
-FirebaseAuth
-FirebaseFirestore
-FirebaseFirestoreSwift
-FirebaseStorage
-Kingfisher
-Pods framework
+Dependencies that need to be installed:
+1. FirebaseAuth
+2. FirebaseFirestore
+3. FirebaseFirestoreSwift
+4. FirebaseStorage
+5. Kingfisher
+6. Pods framework
 
 Main Screen:
 ![image](https://github.com/siam-sharif-ami/ToDo/assets/168058996/03558853-990c-4319-8266-e343a487fa06)
