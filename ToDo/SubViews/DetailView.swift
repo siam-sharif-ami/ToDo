@@ -12,11 +12,16 @@ struct DetailView: View {
     let item: ToDoItem
     
     var body: some View {
-        
-        Text("\(item.title)")
-        Text("\(item.itemDescription)")
-        Text("\(item.dueDate)")
-        Text("\(item.isCompleted)")
+        List{
+            HStack{
+                VStack{
+                    Text("\(item.title)")
+                    Text("\(item.itemDescription)")
+                }
+                Text("\(item.dueDate)")
+                Text("\(item.isCompleted)")
+            }
+        }
     }
 }
 

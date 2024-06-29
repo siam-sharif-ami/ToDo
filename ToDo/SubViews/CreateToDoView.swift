@@ -19,7 +19,6 @@ struct CreateToDoView: View {
         VStack{
             List{
                 if let image = viewModel.selectedImage {
-                    Text("image set in selectedImage")
                     Image(uiImage: image)
                         .resizable()
                         .scaledToFill()
@@ -27,13 +26,18 @@ struct CreateToDoView: View {
                         .padding()
                         .overlay(
                             PhotosPicker(selection: $viewModel.imageSelection){
-                                Image(systemName: "plus.circle")
+                                HStack{
+                                    Image(systemName: "plus.circle")
+                                }
                             }
                         )
                    
                 }else {
                     PhotosPicker(selection: $viewModel.imageSelection){
-                        Image(systemName: "plus.circle")
+                        HStack{
+                            Text("Select an Image")
+                            Image(systemName: "plus.circle")
+                        }
                     }
                 }
                 TextField("Title", text: $viewModel.toDoItem.title)

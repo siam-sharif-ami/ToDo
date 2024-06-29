@@ -21,11 +21,20 @@ extension ToDoItem {
     private static var toDoItemFetchRequest: NSFetchRequest<ToDoItem>{
         NSFetchRequest(entityName: "ToDoItem")
     }
-    static func all() -> NSFetchRequest<ToDoItem> {
+    static func allComplete() -> NSFetchRequest<ToDoItem> {
         let request: NSFetchRequest<ToDoItem> = toDoItemFetchRequest
+        request.predicate = NSPredicate(format: "isCompleted == %@", NSNumber(value: true))
         request.sortDescriptors = [
             NSSortDescriptor(keyPath: \ToDoItem.dueDate, ascending: true)
         ]
         return request
     }
+    static func allIncomplete() -> NSFetchRequest<ToDoItem> {
+            let request: NSFetchRequest<ToDoItem> = toDoItemFetchRequest
+            request.predicate = NSPredicate(format: "isCompleted == %@", NSNumber(value: false))
+            request.sortDescriptors = [
+                NSSortDescriptor(keyPath: \ToDoItem.dueDate, ascending: true)
+            ]
+            return request
+        }
 }

@@ -15,11 +15,8 @@ import CoreData
 class HomeViewModel: ObservableObject {
     
     @Published var toDoItem: ToDoItem
-    
-    
-    
-    ////
     private let context: NSManagedObjectContext
+    var provider = ToDoItemProvider.shared
     
     var selectedImage: UIImage?
     var imageSelection: PhotosPickerItem? = nil {
@@ -42,6 +39,7 @@ class HomeViewModel: ObservableObject {
             try context.save()
         }
     }
+    
     
     func setImage(from selection: PhotosPickerItem?){
         guard let selection else { print("could'nt get selectedImage"); return }
