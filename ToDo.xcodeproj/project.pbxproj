@@ -20,14 +20,16 @@
 		7A1ACD0C2C2D59B5004FE3AC /* CreateToDoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1ACD0B2C2D59B5004FE3AC /* CreateToDoView.swift */; };
 		7A1ACD112C2D5A19004FE3AC /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1ACD102C2D5A19004FE3AC /* HomeViewModel.swift */; };
 		7A1ACD132C2D5C91004FE3AC /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1ACD122C2D5C91004FE3AC /* Home.swift */; };
+		7A7185E42C31206C00D75264 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7185E32C31206C00D75264 /* String+Extensions.swift */; };
+		7A7185E72C316F0200D75264 /* ToDo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7A7185E52C316F0200D75264 /* ToDo.xcdatamodeld */; };
+		7A7185EA2C3196E400D75264 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7185E92C3196E400D75264 /* NetworkManager.swift */; };
+		7A7185ED2C319EE900D75264 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7A7185EC2C319EE900D75264 /* GoogleService-Info.plist */; };
 		7A987F982C30465E00C310C8 /* ItemRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A987F972C30465E00C310C8 /* ItemRowView.swift */; };
 		7A987F9A2C3061CC00C310C8 /* EditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A987F992C3061CC00C310C8 /* EditView.swift */; };
-		7AB5C83E2C2DDD27009CFDFD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7AB5C83D2C2DDD27009CFDFD /* GoogleService-Info.plist */; };
 		7AB5C8412C2DDF34009CFDFD /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 7AB5C8402C2DDF34009CFDFD /* FirebaseAuth */; };
 		7AB5C8432C2DDF34009CFDFD /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 7AB5C8422C2DDF34009CFDFD /* FirebaseFirestore */; };
 		7AB5C8452C2DDF34009CFDFD /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 7AB5C8442C2DDF34009CFDFD /* FirebaseFirestoreSwift */; };
 		7AB5C8472C2DDF34009CFDFD /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 7AB5C8462C2DDF34009CFDFD /* FirebaseStorage */; };
-		7AC9CA0D2C2E925900835992 /* ToDo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7AC9CA0B2C2E925900835992 /* ToDo.xcdatamodeld */; };
 		7AC9CA4E2C2F08DF00835992 /* ToDoItemProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC9CA4D2C2F08DF00835992 /* ToDoItemProvider.swift */; };
 		7AD34DAE2C2D8E2A009235C7 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 7AD34DAD2C2D8E2A009235C7 /* Kingfisher */; };
 		7AD34DB22C2DA9BE009235C7 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD34DB12C2DA9BE009235C7 /* DetailView.swift */; };
@@ -71,10 +73,13 @@
 		7A1ACD0B2C2D59B5004FE3AC /* CreateToDoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateToDoView.swift; sourceTree = "<group>"; };
 		7A1ACD102C2D5A19004FE3AC /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		7A1ACD122C2D5C91004FE3AC /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		7A7185E32C31206C00D75264 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
+		7A7185E62C316F0200D75264 /* ToDo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ToDo.xcdatamodel; sourceTree = "<group>"; };
+		7A7185E82C31726C00D75264 /* ToDo 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "ToDo 2.xcdatamodel"; sourceTree = "<group>"; };
+		7A7185E92C3196E400D75264 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		7A7185EC2C319EE900D75264 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7A987F972C30465E00C310C8 /* ItemRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemRowView.swift; sourceTree = "<group>"; };
 		7A987F992C3061CC00C310C8 /* EditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditView.swift; sourceTree = "<group>"; };
-		7AB5C83D2C2DDD27009CFDFD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		7AC9CA0C2C2E925900835992 /* ToDo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ToDo.xcdatamodel; sourceTree = "<group>"; };
 		7AC9CA4D2C2F08DF00835992 /* ToDoItemProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoItemProvider.swift; sourceTree = "<group>"; };
 		7AD34DB12C2DA9BE009235C7 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		8867FBB5794C333C9392BF77 /* Pods-ToDoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToDoTests.debug.xcconfig"; path = "Target Support Files/Pods-ToDoTests/Pods-ToDoTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -129,6 +134,7 @@
 		7A1ACCCA2C2D58ED004FE3AC = {
 			isa = PBXGroup;
 			children = (
+				7A7185E52C316F0200D75264 /* ToDo.xcdatamodeld */,
 				7A1ACCD52C2D58ED004FE3AC /* ToDo */,
 				7A1ACCE62C2D58F0004FE3AC /* ToDoTests */,
 				7A1ACCF02C2D58F0004FE3AC /* ToDoUITests */,
@@ -151,15 +157,16 @@
 		7A1ACCD52C2D58ED004FE3AC /* ToDo */ = {
 			isa = PBXGroup;
 			children = (
+				7A7185EB2C3196EE00D75264 /* Networking */,
 				7AC9CA4C2C2F088A00835992 /* Provider */,
 				7A1ACD002C2D58FF004FE3AC /* Views */,
 				7A1ACD0A2C2D5999004FE3AC /* SubViews */,
 				7A1ACCD62C2D58ED004FE3AC /* ToDoApp.swift */,
 				7A1ACCD82C2D58ED004FE3AC /* ContentView.swift */,
-				7AB5C83D2C2DDD27009CFDFD /* GoogleService-Info.plist */,
+				7A7185EC2C319EE900D75264 /* GoogleService-Info.plist */,
 				7A1ACCDA2C2D58EF004FE3AC /* Assets.xcassets */,
+				7A7185E22C31204700D75264 /* Strings+Extensions */,
 				7A1ACCDC2C2D58EF004FE3AC /* Preview Content */,
-				7AC9CA0B2C2E925900835992 /* ToDo.xcdatamodeld */,
 			);
 			path = ToDo;
 			sourceTree = "<group>";
@@ -240,6 +247,22 @@
 				7A987F992C3061CC00C310C8 /* EditView.swift */,
 			);
 			path = SubViews;
+			sourceTree = "<group>";
+		};
+		7A7185E22C31204700D75264 /* Strings+Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				7A7185E32C31206C00D75264 /* String+Extensions.swift */,
+			);
+			path = "Strings+Extensions";
+			sourceTree = "<group>";
+		};
+		7A7185EB2C3196EE00D75264 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				7A7185E92C3196E400D75264 /* NetworkManager.swift */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 		7AC9CA4C2C2F088A00835992 /* Provider */ = {
@@ -383,8 +406,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				7A1ACCDE2C2D58EF004FE3AC /* Preview Assets.xcassets in Resources */,
+				7A7185ED2C319EE900D75264 /* GoogleService-Info.plist in Resources */,
 				7A1ACCDB2C2D58EF004FE3AC /* Assets.xcassets in Resources */,
-				7AB5C83E2C2DDD27009CFDFD /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -481,12 +504,14 @@
 				7A1ACCD92C2D58ED004FE3AC /* ContentView.swift in Sources */,
 				7AC9CA4E2C2F08DF00835992 /* ToDoItemProvider.swift in Sources */,
 				7A987F9A2C3061CC00C310C8 /* EditView.swift in Sources */,
+				7A7185EA2C3196E400D75264 /* NetworkManager.swift in Sources */,
 				7AD34DB22C2DA9BE009235C7 /* DetailView.swift in Sources */,
+				7A7185E42C31206C00D75264 /* String+Extensions.swift in Sources */,
 				7A1ACD112C2D5A19004FE3AC /* HomeViewModel.swift in Sources */,
 				7A1ACD0C2C2D59B5004FE3AC /* CreateToDoView.swift in Sources */,
+				7A7185E72C316F0200D75264 /* ToDo.xcdatamodeld in Sources */,
 				7A1ACCD72C2D58ED004FE3AC /* ToDoApp.swift in Sources */,
 				7A1ACD062C2D595C004FE3AC /* ToDoItem.swift in Sources */,
-				7AC9CA0D2C2E925900835992 /* ToDo.xcdatamodeld in Sources */,
 				7A987F982C30465E00C310C8 /* ItemRowView.swift in Sources */,
 				7A1ACD132C2D5C91004FE3AC /* Home.swift in Sources */,
 			);
@@ -877,14 +902,15 @@
 /* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
-		7AC9CA0B2C2E925900835992 /* ToDo.xcdatamodeld */ = {
+		7A7185E52C316F0200D75264 /* ToDo.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				7AC9CA0C2C2E925900835992 /* ToDo.xcdatamodel */,
+				7A7185E82C31726C00D75264 /* ToDo 2.xcdatamodel */,
+				7A7185E62C316F0200D75264 /* ToDo.xcdatamodel */,
 			);
-			currentVersion = 7AC9CA0C2C2E925900835992 /* ToDo.xcdatamodel */;
+			currentVersion = 7A7185E62C316F0200D75264 /* ToDo.xcdatamodel */;
 			name = ToDo.xcdatamodeld;
-			path = /Users/bs00484/Documents/ToDo/ToDo/ToDo/ToDo.xcdatamodeld;
+			path = /Users/bs00484/Documents/ToDo/ToDo/ToDo.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

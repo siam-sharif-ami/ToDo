@@ -11,7 +11,6 @@ final class ToDoItem : NSManagedObject, Identifiable {
     
     override func awakeFromInsert() {
         super.awakeFromInsert()
-        
         setPrimitiveValue(Date.now, forKey: "dueDate")
         setPrimitiveValue(false, forKey: "isCompleted")
     }

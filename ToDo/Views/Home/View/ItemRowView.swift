@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct ItemRowView: View {
     
@@ -14,32 +15,44 @@ struct ItemRowView: View {
     
     var body: some View {
         
-        VStack(alignment: .leading,
-               spacing: 8) {
+        VStack{
+            if let imageURL = item.image {
+                KFImage.url(URL(string: imageURL))
+                    .placeholder {
+                        // Placeholder while loading
+                        Image(systemName: "photo")
+                            .resizable()
+                            .frame(width: 100, height: 100)
+                            .foregroundColor(.gray)
+                    }
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 200, height: 200)
+            }
             
-            Text("\(item.title)")
-                .font(.system(size: 15,
-                              design: .rounded).bold())
-            
-            Text("\(item.itemDescription)")
-                .font(.subheadline)
-            
-//            Text("\(item.dueDate)")
-//                .font(.subheadline)
-            
+            HStack {
+                Button {
+                    toggleIsCompleted()
+                } label: {
+                    Image(systemName: item.isCompleted ? "checkmark.square": "square")
+                }
+                .buttonStyle(.plain)
+                
+                VStack(alignment: .leading){
+                    Text("\(item.title)")
+                    
+                    Text("\(item.itemDescription)")
+                        .font(.subheadline)
+                }
+                .frame(width: 200)
+                .padding(EdgeInsets(top: 0, leading: 15, bottom: 0, trailing: 15))
+                
+                Text("\(item.dueDate)")
+                    .font(.subheadline)
+                
+            }
+            .frame(maxWidth: .infinity, alignment: .leading)
         }
-               .frame(maxWidth: .infinity, alignment: .leading)
-               .overlay(alignment: .topTrailing) {
-                   Button {
-                       toggleIsCompleted()
-                   } label: {
-                       Image(systemName: "checkmark.circle")
-                           .font(.title3)
-                           .symbolVariant(.fill)
-                           .foregroundColor(item.isCompleted ? .green : .gray.opacity(0.3))
-                   }
-                   .buttonStyle(.plain)
-               }
     }
 }
 
@@ -55,15 +68,8 @@ private extension ItemRowView {
             }
         }
     }
-    
-    func formattedDate(_ date: Date) -> String {
-        let formatter = DateFormatter()
-        formatter.dateStyle = .medium
-        formatter.timeStyle = .none
-        return formatter.string(from: date)
-    }
 }
 
-//#Preview {
-//    ItemRowView()
-//}
+#Preview {
+    ItemRowView(item: ToDoItem())
+}

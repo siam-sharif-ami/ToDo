@@ -17,8 +17,10 @@ class HomeViewModel: ObservableObject {
     @Published var toDoItem: ToDoItem
     private let context: NSManagedObjectContext
     var provider = ToDoItemProvider.shared
+    let networkManager: NetworkManager
+    @Published var selectedImage: UIImage?
     
-    var selectedImage: UIImage?
+    
     var imageSelection: PhotosPickerItem? = nil {
         didSet{
             setImage(from: imageSelection)
@@ -26,14 +28,12 @@ class HomeViewModel: ObservableObject {
         }
     }
     
-    init(provider: ToDoItemProvider, temptoDoItem: ToDoItem? = nil){
+    init(provider: ToDoItemProvider, temptoDoItem: ToDoItem? = nil, networkManager: NetworkManager = NetworkManager()){
         self.context = provider.newContext
         self.toDoItem = ToDoItem(context: self.context)
+        self.networkManager = networkManager
     }
-    ////
-    ///
-    ///
-    ///
+    
     func save() throws {
         if context.hasChanges {
             try context.save()
@@ -57,13 +57,10 @@ class HomeViewModel: ObservableObject {
         print("Image set successfully")
     }
     
-    func pushToFirebaseStorage(){
-//        let storage = Storage.storage()
-//        let storageRef = storage.reference()
-//        
-//        let imagesRef = storageRef.child("images")
-//        let storagePath = "\gs://todo-b06b4.appspot.com/images/space.jpg)"
-//        spaceRef = storage.reference(forURL: storagePath)
+    func dateToString(date: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        return dateFormatter.string(from: date)
     }
     
 }

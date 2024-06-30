@@ -16,7 +16,7 @@ struct Home: View {
     @Environment(\.managedObjectContext) var objectContext
     @ObservedObject var viewModel: HomeViewModel
     var provider = ToDoItemProvider.shared
-    @FetchRequest(fetchRequest: ToDoItem.allIncomplete()) var items
+    @FetchRequest(fetchRequest: ToDoItem.allIncomplete()) var pendingItems
     @FetchRequest(fetchRequest: ToDoItem.allComplete()) var doneItems
     
     var body: some View {
@@ -24,8 +24,12 @@ struct Home: View {
         NavigationStack{
             List{
                 Section(header: Text("To Do Items")) {
-                    ForEach(items, id: \.id){ item in
-                        
+                    
+                    if pendingItems.isEmpty {
+                        ContentUnavailableView("No items found", systemImage: "checklist.unchecked")
+                    }
+                    
+                    ForEach(pendingItems, id: \.id){ item in
                         ItemRowView(item: item)
                             .swipeActions {
                                 Button(role: .destructive) {
@@ -38,8 +42,6 @@ struct Home: View {
                                 } label: {
                                     Label("Delete", systemImage: "trash")
                                 }
-                            }
-                            .swipeActions{
                                 Button(action: {
                                     selectedItem = item
                                     showEdit.toggle()
@@ -48,9 +50,16 @@ struct Home: View {
                                         .tint(Color.orange)
                                 })
                             }
+                        
+                        
                     }
                 }
                 Section(header: Text("Completed")) {
+                    
+                    if doneItems.isEmpty {
+                        ContentUnavailableView("No items found", image: "checklist.unchecked")
+                    }
+                    
                     ForEach(doneItems, id: \.id){ item in
                         ItemRowView(item: item)
                             .swipeActions {
@@ -64,8 +73,6 @@ struct Home: View {
                                 } label: {
                                     Label("Delete", systemImage: "trash")
                                 }
-                            }
-                            .swipeActions{
                                 Button(action: {
                                     selectedItem = item
                                     showEdit.toggle()
@@ -77,36 +84,36 @@ struct Home: View {
                             }
                     }
                 }
-            }
-            .sheet(isPresented: $showCreate, content: {
-                NavigationStack{
-                    CreateToDoView(showCreate: $showCreate, viewModel: .init(provider: .shared))
-                }
-                .presentationDetents([.large])
-            })
-            .sheet(isPresented: $showEdit, content: {
-                NavigationStack{
-                    if let item = selectedItem {
-                        EditView(showEdit: $showEdit, item: item)
-                    }else {
-                        Text("item not selected")
+            }.listStyle(.plain)
+                .sheet(isPresented: $showCreate, content: {
+                    NavigationStack{
+                        CreateToDoView(showCreate: $showCreate, viewModel: .init(provider: .shared))
                     }
-                }
-            })
-            .overlay(
-                VStack {
-                    Spacer()
-                    HStack {
-                        Spacer()
-                        Button(action: { showCreate.toggle() }) {
-                            Image(systemName: "plus.circle.fill")
-                                .resizable()
-                                .frame(width: 60, height: 60)
-                                .padding()
+                    .presentationDetents([.large])
+                })
+                .sheet(isPresented: $showEdit, content: {
+                    NavigationStack{
+                        if let item = selectedItem {
+                            EditView(showEdit: $showEdit, item: item)
+                        }else {
+                            Text("item not selected")
                         }
                     }
-                }
-            )
+                })
+                .overlay(
+                    VStack {
+                        Spacer()
+                        HStack {
+                            Spacer()
+                            Button(action: { showCreate.toggle() }) {
+                                Image(systemName: "plus.circle.fill")
+                                    .resizable()
+                                    .frame(width: 60, height: 60)
+                                    .padding()
+                            }
+                        }
+                    }
+                )
         }
         
     }
@@ -114,12 +121,21 @@ struct Home: View {
 
 private extension Home {
     func delete(_ item: ToDoItem) throws{
+        print(item.title)
+        print(item.isCompleted)
+        print(item.dueDate)
+        
+        
         let context = provider.viewContext
         let existingItem = try context.existingObject(with: item.objectID)
         context.delete(existingItem)
         
         if context.hasChanges{
-            try context.save()
+            do{
+                try context.save()
+            }catch{
+                print("error deleting item \(error.localizedDescription)")
+            }
         }
     }
     

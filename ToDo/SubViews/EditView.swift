@@ -13,22 +13,26 @@ struct EditView: View {
     @Binding var showEdit: Bool
     @Environment(\.managedObjectContext) var moc
     @State var item: ToDoItem
+    //@State var dateShown: Date = Date.now
     
     var body: some View {
         VStack{
             List{
 
-                TextField("Title", text: $item.title)
+                TextField("Title", text: $item.title )
                 TextField("Description", text: $item.itemDescription)
-                DatePicker("Choose a date", selection: $item.dueDate)
-                Toggle(isOn: $item.isCompleted){
-                    Text("Done?")
+                
+                DatePicker("Choose a date", selection: $item.dueDate, in: Date()...)
+                
+                Toggle(isOn: $item.isCompleted ){
+                    Text("Complete?")
                 }
                 Button(action: {
+//                    item.dueDate = dateToString(date: dateShown)
                     save()
                     showEdit.toggle()
                 } ,label: {
-                    Text("Done")
+                    Text("Save")
                         .fontWeight(.bold)
                 })
             }
@@ -43,6 +47,9 @@ struct EditView: View {
                     
                 }
             }
+//            .onAppear(){
+//                self.dateShown = stringToDate(dateString: item.dueDate ?? "19/04/2024")
+//            }
         }
     }
 }
@@ -57,8 +64,38 @@ private extension EditView{
             }
         }
     }
+    
+    func stringToDate(dateString: String) -> Date {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        return dateFormatter.date(from: dateString) ?? Date.distantFuture
+        
+    }
+    func dateToString(date: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        return dateFormatter.string(from: date)
+    }
+    
 }
+
+//struct EditView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        // Create a mock managed object context for preview purposes
+//        let context = ToDoItemProvider.shared.viewContext
 //
+//        // Create a sample ToDoItem for the preview
+//        let newItem = ToDoItem(context: context)
+//        newItem.title = "Sample Title"
+//        newItem.itemDescription = "Sample Description"
+//        newItem.dueDate = Date.now
+//        newItem.isCompleted = false
+//
+//        return EditView(showEdit: .constant(true), item: newItem, dateShown: Date.now)
+//            .environment(\.managedObjectContext, context)
+//    }
+//}
+
 //#Preview {
-//    EditView()
+//    EditView(item: )
 //}
